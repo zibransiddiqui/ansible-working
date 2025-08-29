@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create directory for template deployment
+      file:
+        path: /home/ansible/lab-templates
+        state: directory
+        mode: '0755'
+    
+    - name: Deploy sudo template
+      template:
+        src: hardened.j2
+        dest: /etc/sudoers.d/hardened
+        mode: '0440'
+        validate: /sbin/visudo -cf %s
+    
+    - name: Display success message
+      debug:
+        msg: "Hardened sudoers template deployed successfully"
