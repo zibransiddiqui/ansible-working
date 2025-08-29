@@ -16,6 +16,6 @@
             replace: '\n'
         - debug: msg="File downloaded"
       rescue:
-        - debug: msg="Site appears to be down. Try again later.
+        - debug: msg="Site appears to be down. Try again later."
       always:
         - debug: msg="Attempt completed."
