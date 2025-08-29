@@ -4,7 +4,7 @@
   tasks:
     - name: Create directory for template deployment
       file:
-        path: /home/ansible/lab-templates
+        path: /home/ansible/templates-lab
         state: directory
         mode: '0755'
     
